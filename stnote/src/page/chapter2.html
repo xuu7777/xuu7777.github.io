@@ -1,0 +1,360 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>基础部分（中） · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="chapter3.html" />
+    
+    
+    <link rel="prev" href="chapter1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    一、基础部分
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="chapter1.html">
+            
+                <a href="chapter1.html">
+            
+                    
+                    基础部分（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="chapter2.html">
+            
+                <a href="chapter2.html">
+            
+                    
+                    基础部分（中）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="chapter3.html">
+            
+                <a href="chapter3.html">
+            
+                    
+                    基础部分（下）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    二、Windows基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="chapter4.html">
+            
+                <a href="chapter4.html">
+            
+                    
+                    Windows基础（上）
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >基础部分（中）</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="vmware-tools&#x5B89;&#x88C5;">VMWare Tools&#x5B89;&#x88C5;</h2>
+<ul>
+<li>VMWare Tools&#x5B89;&#x88C5;:  </li>
+<li>windows&#x7CFB;&#x7EDF;&#x4E0A;&#x5B89;&#x88C5;:  </li>
+</ul>
+<ol>
+<li>&#x865A;&#x62DF;&#x673A;---&#x5B89;&#x88C5;VMwareTools  </li>
+<li>&#x4F1A;&#x81EA;&#x52A8;&#x5F39;&#x51FA;&#x4E00;&#x4E2A;&#x5B89;&#x88C5;&#x754C;&#x9762;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5F39;&#x51FA;&#xFF0C;&#x6253;&#x5F00;&#x6211;&#x7684;&#x7535;&#x8111;---&#x865A;&#x62DF;&#x5149;&#x9A71;---setup&#x5B89;&#x88C5;&#x5373;&#x53EF;  </li>
+<li>&#x5B89;&#x88C5;&#x9009;&#x62E9;&#x9ED8;&#x8BA4;&#x56DE;&#x8F66;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x5B89;&#x88C5;&#x5B8C;&#x91CD;&#x542F;  </li>
+</ol>
+<h2 id="&#x5916;&#x7F51;&#x4E0E;&#x5185;&#x7F51;&#x7684;&#x533A;&#x522B;&#xFF1A;">&#x5916;&#x7F51;&#x4E0E;&#x5185;&#x7F51;&#x7684;&#x533A;&#x522B;&#xFF1A;</h2>
+<p>&#x5916;&#x7F51;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4ECE; Internet &#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x5546;&#xFF08;ISP&#xFF09;&#x5206;&#x914D;&#x7684;IPv4&#x5730;&#x5740;&#x5757;&#x3002;&#x5F53;&#x516C;&#x53F8;&#x6216;&#x7EC4;&#x7EC7;&#x8981;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E; IP &#x7684;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5230; Internet&#x65F6;&#xFF0C;&#x5B83;&#x4EEC;&#x7684; ISP &#x4F1A;&#x7ED9;&#x4ED6;&#x4EEC;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x5757;&#x3002;&#x6BCF;&#x4E2A;&#x5730;&#x5740;&#x5757;&#x6709;&#x56FA;&#x5B9A;&#x7684;&#x524D;&#x7F00;&#x3002;&#x4F8B;&#x5982;ISP&#x5206;&#x914D;&#x7ED9;&#x67D0;&#x516C;&#x53F8;&#x7684;&#x5730;&#x5740;&#x5757;&#x4E3A;199.34.76.64/28&#xFF0C;&#x7531;&#x4E8E;&#x8FD9;&#x4E2A;&#x5757;&#x56FA;&#x5B9A;&#x4E86;&#x524D;28&#x4F4D;&#xFF0C;&#x6240;&#x4EE5;&#x79F0;&#x4E3A;/28&#x3002;/28&#x6307;&#x5B9A;&#x4E86;IP&#x5730;&#x5740;&#x524D;28&#x4F4D;&#xFF0C;&#x7559;&#x51FA;&#x4E86;4&#x4F4D;&#x8868;&#x793A;&#x603B;&#x5171;&#x662F;2&#x7684;4&#x6B21;&#x5E42;&#x4E5F;&#x5C31;&#x662F;16&#x4E2A;&#x672C;&#x5730;IP&#x5730;&#x5740;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#xFF0C;&#x4E0D;&#x8FC7;&#x6240;&#x6709;&#x5757;&#x4E2D;&#x6700;&#x4F4E;&#x5730;&#x5740;&#x7528;&#x4E8E;&#x6807;&#x8BC6;&#x7F51;&#x7EDC;&#x672C;&#x8EAB;&#xFF0C;&#x6700;&#x9AD8;&#x5730;&#x5740;&#x662F;&#x8FD9;&#x4E2A;&#x7F51;&#x7EDC;&#x7684;&#x4E00;&#x4E2A;&#x5E7F;&#x64AD;&#x5730;&#x5740;&#xFF0C;&#x6240;&#x4EE5;&#x6BD4;&#x4F60;&#x539F;&#x6765;&#x9884;&#x8BA1;&#x7684;&#x8981;&#x5C11;&#x4E24;&#x4E2A;&#x5730;&#x5740;&#x3002;&#x7531;&#x4E8E;IP&#x5730;&#x5740;&#x8D8A;&#x6765;&#x8D8A;&#x7A00;&#x5C11;&#xFF0C;&#x5982;&#x4ECA;&#x5927;&#x591A;&#x6570;&#x7F51;&#x7EDC;&#x90FD;&#x4F7F;&#x7528;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x8F6C;&#x6362;&#xFF08;Network Address Translation , NAT)&#x3002;&#x5927;&#x5BB6;&#x4E2D;&#x76EE;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x8DEF;&#x7531;&#x5C31;&#x6709;NAT&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x57FA;&#x4E8E;NAT&#x7F51;&#x7EDC;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x8282;&#x70B9;&#x53EA;&#x6709;&#x4E0D;&#x53EF;&#x8DEF;&#x7531;&#x7684;&#x672C;&#x5730;&#x5730;&#x5740;&#xFF0C;&#x8FD9;&#x4E9B;&#x5730;&#x5740;&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x6240;&#x8BF4;&#x7684;&#x79C1;&#x6709;&#x5730;&#x5740;&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x8BF4;&#x7684;&#x5185;&#x7F51;&#x3002;</p>
+<ul>
+<li><p>IP&#xFF1A;&#x5B9E;&#x9645;&#x4E0A;&#x6709;&#x4E24;&#x79CD;&#x4E00;&#x79CD;IPv6&#x548C;IPv4&#x6211;&#x4EEC;&#x5E38;&#x7528;&#x7684;&#x662F;IPv4&#x662F;32&#x4F4D;&#x7684;&#x957F;&#x5EA6;&#xFF0C;IPv6&#x4F7F;&#x7528;128&#x4F4D;&#x5730;&#x5740;&#xFF0C;&#x6B63;&#x56E0;&#x4E3A;IPv4&#x7684;&#x957F;&#x5EA6;&#x6709;&#x9650;&#x6240;&#x4EE5;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x5168;&#x7403;&#x6BCF;&#x4E2A;&#x4EBA;&#x4E00;&#x4E2A;ip&#x5730;&#x5740;&#xFF0C;&#x6240;&#x4EE5;&#x624D;&#x9700;&#x8981;NAT&#x6765;&#x8FDB;&#x884C;&#x8F6C;&#x6362;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x5185;&#x7F51;&#xFF0C;&#x662F;&#x8DEF;&#x7531;&#x5668;LAN&#x53E3;&#x5206;&#x914D;&#x7684;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x8981;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x5C06;&#x6570;&#x636E;&#x4F20;&#x9001;&#x5230;&#x8DEF;&#x7531;&#x5668;&#xFF0C;&#x8DEF;&#x7531;&#x5668;&#x4F20;&#x9012;&#x5230;WAN&#x53E3;&#x7ED9;&#x8FD0;&#x8425;&#x5546;&#xFF08;&#x8054;&#x901A;&#x3001;&#x79FB;&#x52A8;&#x3001;&#x7535;&#x4FE1;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x8FD0;&#x8425;&#x5546;&#x54EA;&#x91CC;&#x4F7F;&#x7528;&#x624D;&#x662F;&#x5916;&#x7F51;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;Internet&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x901A;&#x8FC7;&#x8DEF;&#x7531;&#x5668;&#x628A;&#x8BF7;&#x6C42;&#x5230;&#x7684;&#x4FE1;&#x606F;&#x8FD4;&#x8FD8;&#x7ED9;&#x6211;&#x4EEC;&#x3002;</p>
+</li>
+<li><p>&#x79C1;&#x6709;IP&#x5730;&#x5740;&#x7F51;&#x6BB5;&#x4E3A;&#xFF1A;
+A&#x7C7B;&#xFF1A;10.0.0.0&#x2014;&#x2014;10.255.255.255
+B&#x7C7B;&#xFF1A;172.16.0.0&#x2014;&#x2014;172.31.255.255
+C&#x7C7B;&#xFF1A;192.168.0.0&#x2014;&#x2014;192.168.255.255</p>
+</li>
+<li><p>&#x5916;&#x7F51;IP&#x5730;&#x5740;&#x7F51;&#x6BB5;&#x4E3A;&#xFF1A;
+A&#x7C7B;&#xFF1A;1.0.0.0&#x2014;&#x2014;126.0.0.0 &#x5B50;&#x7F51;255.0.0.0 &#x7B2C;&#x4E00;&#x4F4D;&#x5FC5;&#x987B;&#x662F;0
+B&#x7C7B;&#xFF1A;128.1.0.0&#x2014;&#x2014;191.255.255 &#x5B50;&#x7F51;255.255.0.0 &#x524D;&#x4E24;&#x4F4D;&#x5FC5;&#x987B;&#x662F;10
+C&#x7C7B;&#xFF1A;192.0.1.0&#x2014;&#x2014;223.255.255.255 &#x5B50;&#x7F51;255.255.255.0 &#x524D;&#x4E09;&#x4F4D;&#x5FC5;&#x987B;&#x662F;110</p>
+</li>
+</ul>
+<h2 id="vmware&#x865A;&#x62DF;&#x673A;&#x4E09;&#x79CD;&#x7F51;&#x7EDC;&#x6A21;&#x5F0F;&#xFF1A;">Vmware&#x865A;&#x62DF;&#x673A;&#x4E09;&#x79CD;&#x7F51;&#x7EDC;&#x6A21;&#x5F0F;&#xFF1A;</h2>
+<p>vmware&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x7F51;&#x7EDC;&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#xFF0C;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x662F;&#xFF1A;Bridged&#xFF08;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#xFF09;&#x3001;NAT&#xFF08;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x8F6C;&#x6362;&#x6A21;&#x5F0F;&#xFF09;&#x3001;Host-Only&#xFF08;&#x4EC5;&#x4E3B;&#x673A;&#x6A21;&#x5F0F;&#xFF09;&#x3002;</p>
+<ol>
+<li>Bridged&#xFF08;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#xFF09;&#xFF1A;
+&#x4EC0;&#x4E48;&#x662F;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#xFF1F;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x5C31;&#x662F;&#x5C06;&#x4E3B;&#x673A;&#x7F51;&#x5361;&#x4E0E;&#x865A;&#x62DF;&#x673A;&#x865A;&#x62DF;&#x7684;&#x7F51;&#x5361;&#x5229;&#x7528;&#x865A;&#x62DF;&#x7F51;&#x6865;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;&#x5728;&#x6865;&#x63A5;&#x7684;&#x4F5C;&#x7528;&#x4E0B;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x628A;&#x7269;&#x7406;&#x4E3B;&#x673A;&#x865A;&#x62DF;&#x4E3A;&#x4E00;&#x4E2A;&#x4EA4;&#x6362;&#x673A;&#xFF0C;&#x6240;&#x6709;&#x6865;&#x63A5;&#x8BBE;&#x7F6E;&#x7684;&#x865A;&#x62DF;&#x673A;&#x8FDE;&#x63A5;&#x5230;&#x8FD9;&#x4E2A;&#x4EA4;&#x6362;&#x673A;&#x7684;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x4E0A;&#xFF0C;&#x7269;&#x7406;&#x4E3B;&#x673A;&#x4E5F;&#x540C;&#x6837;&#x63D2;&#x5728;&#x8FD9;&#x4E2A;&#x4EA4;&#x6362;&#x673A;&#x5F53;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;&#x6240;&#x6709;&#x6865;&#x63A5;&#x4E0B;&#x7684;&#x7F51;&#x5361;&#x4E0E;&#x7F51;&#x5361;&#x90FD;&#x662F;&#x4EA4;&#x6362;&#x6A21;&#x5F0F;&#x7684;&#xFF0C;&#x76F8;&#x4E92;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x800C;&#x4E0D;&#x5E72;&#x6270;&#x3002;&#x5728;&#x6865;&#x63A5;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x865A;&#x62DF;&#x673A;ip&#x5730;&#x5740;&#x9700;&#x8981;&#x4E0E;&#x4E3B;&#x673A;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x7F51;&#x6BB5;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x8054;&#x7F51;&#xFF0C;&#x5219;&#x7F51;&#x5173;&#x4E0E;DNS&#x9700;&#x8981;&#x4E0E;&#x4E3B;&#x673A;&#x7F51;&#x5361;&#x4E00;&#x81F4;&#x3002;&#x5176;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;
+<img src="../static/img/net1.png" alt="avatar"></li>
+<li><p>NAT&#xFF08;&#x5730;&#x5740;&#x8F6C;&#x6362;&#x6A21;&#x5F0F;&#xFF09;&#xFF1A;
+&#x521A;&#x521A;&#x6211;&#x4EEC;&#x8BF4;&#x5230;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x7684;&#x7F51;&#x7EDC;ip&#x8D44;&#x6E90;&#x7D27;&#x7F3A;&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x53C8;&#x5E0C;&#x671B;&#x4F60;&#x7684;&#x865A;&#x62DF;&#x673A;&#x80FD;&#x591F;&#x8054;&#x7F51;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;NAT&#x6A21;&#x5F0F;&#x662F;&#x6700;&#x597D;&#x7684;&#x9009;&#x62E9;&#x3002;NAT&#x6A21;&#x5F0F;&#x501F;&#x52A9;&#x865A;&#x62DF;NAT&#x8BBE;&#x5907;&#x548C;&#x865A;&#x62DF;DHCP&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4F7F;&#x5F97;&#x865A;&#x62DF;&#x673A;&#x53EF;&#x4EE5;&#x8054;&#x7F51;&#x3002;&#x5176;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;
+<img src="../static/img/net2.png" alt="avatar"></p>
+</li>
+<li><p>Host-Only&#xFF08;&#x4EC5;&#x4E3B;&#x673A;&#x6A21;&#x5F0F;&#xFF09;&#xFF1A;
+Host-Only&#x6A21;&#x5F0F;&#x5176;&#x5B9E;&#x5C31;&#x662F;NAT&#x6A21;&#x5F0F;&#x53BB;&#x9664;&#x4E86;&#x865A;&#x62DF;NAT&#x8BBE;&#x5907;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;VMware Network Adapter VMnet1&#x865A;&#x62DF;&#x7F51;&#x5361;&#x8FDE;&#x63A5;VMnet1&#x865A;&#x62DF;&#x4EA4;&#x6362;&#x673A;&#x6765;&#x4E0E;&#x865A;&#x62DF;&#x673A;&#x901A;&#x4FE1;&#x7684;&#xFF0C;Host-Only&#x6A21;&#x5F0F;&#x5C06;&#x865A;&#x62DF;&#x673A;&#x4E0E;&#x5916;&#x7F51;&#x9694;&#x5F00;&#xFF0C;&#x4F7F;&#x5F97;&#x865A;&#x62DF;&#x673A;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EA;&#x4E0E;&#x4E3B;&#x673A;&#x76F8;&#x4E92;&#x901A;&#x8BAF;&#x3002;&#x5176;&#x7F51;&#x7EDC;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;
+<img src="../static/img/net3.png" alt="avatar"></p>
+</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="chapter1.html" class="navigation navigation-prev " aria-label="Previous page: 基础部分（上）">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="chapter3.html" class="navigation navigation-next " aria-label="Next page: 基础部分（下）">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"基础部分（中）","level":"1.2.2","depth":2,"next":{"title":"基础部分（下）","level":"1.2.3","depth":2,"path":"src/page/chapter3.md","ref":"src/page/chapter3.md","articles":[]},"previous":{"title":"基础部分（上）","level":"1.2.1","depth":2,"path":"src/page/chapter1.md","ref":"src/page/chapter1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"src/page/chapter2.md","mtime":"2020-05-05T13:45:40.345Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-05T14:56:12.293Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
