@@ -9,5 +9,6 @@
 
 * [二、Windows基础]()
     * [Windows基础（上）](src/page/chapter4.md)
+    * [Windows基础（下）](src/page/chapter5.md)
 
 
