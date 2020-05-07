@@ -11,4 +11,9 @@
     * [Windows基础（上）](src/page/chapter4.md)
     * [Windows基础（下）](src/page/chapter5.md)
 
+* [三、Linux基础]()
+    * [Linux基础（上）](src/page/chapter6.md)
+    * [Linux基础（中）](src/page/chapter7.md)
+    * [Linux基础（下）](src/page/chapter8.md)
+
 
