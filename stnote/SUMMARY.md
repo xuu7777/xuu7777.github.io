@@ -16,4 +16,5 @@
     * [Linux基础（中）](src/page/chapter7.md)
     * [Linux基础（下）](src/page/chapter8.md)
 
+* [四、网络基础](src/page/chapter9.md)
 
