@@ -20,3 +20,5 @@
 
 * [五、数据库基础](src/page/chapter10.md)
 
+* [六、HTML基础](src/page/chapter11.md)
+
