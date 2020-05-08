@@ -1,6 +1,6 @@
 # Summary
 
-* [前言](README.md)
+* [Introduction](README.md)
 
 * [一、基础部分]()
     * [基础部分（上）](src/page/chapter1.md)
