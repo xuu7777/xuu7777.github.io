@@ -1,0 +1,2 @@
+$ gitbook build --format=website
+$ cp -r _book/* .
