@@ -19,3 +19,7 @@
     * [文件泄露](src/page/chapter10.md)
     * [SQL注入](src/page/chapter11.md)
     * [XSS](src/page/chapter12.md)
+    * [CSRF](src/page/chapter13.md)
+    * [暴力破解](src/page/chapter14.md)
+    * [文件上传](src/page/chapter15.md)
+    * [逻辑漏洞](src/page/chapter16.md)
