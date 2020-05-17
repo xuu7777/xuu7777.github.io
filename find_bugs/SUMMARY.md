@@ -18,3 +18,4 @@
 * [漏洞详解]()
     * [文件泄露](src/page/chapter10.md)
     * [SQL注入](src/page/chapter11.md)
+    * [XSS Fuzzing](src/page/chapter12.md)
