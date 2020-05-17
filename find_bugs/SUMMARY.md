@@ -14,3 +14,6 @@
     * [常规信息收集之搜索引擎](src/page/chapter8.md)
     * [常规信息收集之资产监控与分析](src/page/chapter9.md)
 
+
+* [漏洞详解]()
+    * [文件泄露](src/page/chapter10.md)
