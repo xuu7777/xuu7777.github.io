@@ -23,3 +23,10 @@
     * [暴力破解](src/page/chapter14.md)
     * [文件上传](src/page/chapter15.md)
     * [逻辑漏洞](src/page/chapter16.md)
+
+* [漏洞工具详解]()
+    * [Nmap](src/page/chapter17.md)
+    * [sqlmap](src/page/chapter18.md)
+    * [awvs](src/page/chapter19.md)
+    * [xray](src/page/chapter20.md)
+    * [BurpSuite](src/page/chapter21.md)
