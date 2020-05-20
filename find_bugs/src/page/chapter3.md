@@ -48,7 +48,7 @@
 ## 二、常规信息收集之子域名：暴力枚举
 
 
-##### 推荐工具1：
+##### 工具1：
 * Layer子域名挖掘机5.0 SAINTSEC更新版
 
 
@@ -61,7 +61,7 @@
 ###### 支持服务接口、暴力搜索、同服挖掘三种模式，支持打开网站，复制域名、复制IP、复制CDN、支持导出检测结果等功能。
 
 
-##### 推荐工具2：
+##### 工具2：
 * subdomainsBurte
 
 
@@ -72,6 +72,12 @@
 
 
 * 下载地址：https://github.com/lijiejie/subDomainsBrute
+
+
+##### 推荐工具：
+* OneForAll
+
+* 下载地址：https://github.com/shmilylty/OneForAll
 
 
 ## 三、常规信息收集之子域名：SSL证书查询
